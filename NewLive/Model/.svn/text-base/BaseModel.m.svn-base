@@ -1,0 +1,21 @@
+//
+//  BaseModel.m
+//  GuoGuoLiveDev
+//
+//  Created by sy on 16/5/19.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import "BaseModel.h"
+
+@implementation BaseModel
+- (id)initWithDictionary:(NSDictionary *)dict {
+    if (self = [super init]) {
+    }
+    return self;
+}
+
++ (id)modelWithDictionary:(NSDictionary *)dict {
+    return [[[self class ] alloc ] initWithDictionary:dict];
+}
+@end

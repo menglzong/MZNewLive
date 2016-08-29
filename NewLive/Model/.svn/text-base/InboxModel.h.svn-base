@@ -1,0 +1,36 @@
+//
+//  InboxModel.h
+//  GuoGuoLiveDev
+//
+//  Created by sy on 16/5/19.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import "BaseModel.h"
+
+@interface InboxModel : BaseModel
+/* 标题 */
+@property (nonatomic, copy) NSString *MessageTitle;
+/* 内容 */
+@property (nonatomic, copy) NSString *MessageContent;
+/* 邮件编号 */
+@property (nonatomic, assign) int MessageId;
+/* 发送时间 */
+@property (nonatomic, copy) NSString *SendDate;
+/* 发送人 */
+@property (nonatomic, copy) NSString *SendUser;
+/* 信件的状态 1-未 读 2-已读 3-删除*/
+@property (nonatomic, assign) int State;
+/* 收件人 */
+@property (nonatomic, assign) int UserId;
+/* 头像 */
+@property (nonatomic, strong) NSString *UserPortrait;
+/* 性别 */
+@property (nonatomic, assign) int Gender;
+/* vip */
+@property (nonatomic, assign) int IsAuthentication;
+/* level */
+@property (nonatomic, assign) int UserLevel;
+/* 官方 */
+@property (nonatomic, assign) int IsOfficial;
+@end

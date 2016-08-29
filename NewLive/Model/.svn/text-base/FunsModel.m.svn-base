@@ -1,0 +1,26 @@
+//
+//  FunsModel.m
+//  GuoGuoLiveDev
+//
+//  Created by sy on 16/6/23.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import "FunsModel.h"
+
+@implementation FunsModel
+
+- (id)initWithDictionary:(NSDictionary *)dict {
+    if (self = [super initWithDictionary:dict]) {
+        self.UserPortrait = dict[@"UserPortrait"];
+        self.UserDescription = dict[@"UserDescription"];
+        self.IsAuthentication = dict[@"IsAuthentication"];
+        self.NickName = dict[@"NickName"];
+        self.ToUserId = dict[@"ToUserId"];
+        self.BeFansUserID = dict[@"BeFansUserID"];
+    }
+    
+    return self;
+}
+
+@end

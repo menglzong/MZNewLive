@@ -1,0 +1,69 @@
+//
+//  ShowAlertViewManager.m
+//  GuoGuoLiveDev
+//
+//  Created by 94bank on 16/6/14.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import "ShowAlertViewManager.h"
+#import "AppDelegate.h"
+#import "BasicViewController.h"
+#import "LiveAppAlertView.h"
+
+@interface ShowAlertViewManager ()<LiveAppAlertViewDelegate>
+
+@property (assign ,nonatomic) BOOL isShow;
+
+@property (assign ,nonatomic) BOOL requestExit;
+
+@property (strong, nonatomic) LiveAppAlertView *liveAppAlertView;
+
+@end
+
+@implementation ShowAlertViewManager
+
+- (void)showAlertView {
+    [self showAppAlertView];
+}
+
+- (void)showAppAlertView {
+    if (!_liveAppAlertView) {
+        _liveAppAlertView = [[LiveAppAlertView alloc] initWithTitle:@"您已在别处登录" cancelTitle:@"我知道了"];
+        _liveAppAlertView.delegate = self;
+    }
+}
+
+- (void)cancelAlertWithPresentVC:(UIViewController *)presentVC {
+    _liveAppAlertView = nil;
+    [self basicExitLogin];
+}
+
+- (void)basicExitLogin {
+    [YXIMManager exitIM];
+    [self basicNetworkForExitLogin];
+}
+
+#pragma mark - network
+
+- (void)basicNetworkForExitLogin {
+    if (_requestExit) {
+        return;
+    }
+    _requestExit = YES;
+    
+    NSDictionary *paramDic = @{
+                               @"userid" : @([[UserInfoManager defaultManager]getUserID]),
+                               }.copy;
+    [NetworkManager POST:ExitLogin_action params:paramDic success:^(NSDictionary *reponseObject) {
+        [[UserInfoManager defaultManager] exitLogin];
+        [[NSNotificationCenter defaultCenter] postNotificationName:SetJPushAlias object:nil];
+        AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+        [delegate transform2HomeView];//跳转到首页
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
+@end

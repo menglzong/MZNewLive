@@ -1,0 +1,15 @@
+//
+//  BaseModel.h
+//  GuoGuoLiveDev
+//
+//  Created by sy on 16/5/19.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface BaseModel : NSObject
+- (id)initWithDictionary:(NSDictionary *)dict;
+
++ (id)modelWithDictionary:(NSDictionary *)dict;
+@end

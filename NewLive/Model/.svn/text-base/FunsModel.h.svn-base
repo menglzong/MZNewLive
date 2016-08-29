@@ -1,0 +1,31 @@
+//
+//  FunsModel.h
+//  GuoGuoLiveDev
+//
+//  Created by sy on 16/6/23.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import "BaseModel.h"
+
+@interface FunsModel : BaseModel
+/* 头像 */
+@property (nonatomic, copy) NSString *UserPortrait;
+/* 内容 */
+@property (nonatomic, copy) NSString *UserDescription;
+/* 标题 */
+@property (nonatomic, copy) NSString *NickName;
+/* 加V认证 */
+@property (nonatomic, copy) NSString *IsAuthentication;
+
+@property (nonatomic, copy) NSString *isFuns;
+
+@property (nonatomic, copy) NSString *BeFansUserID;
+
+@property (nonatomic, copy) NSString *ToUserId;
+
+@property (nonatomic, assign) int UserLevel;
+
+@property (nonatomic, assign) int IsOfficial;
+
+@end

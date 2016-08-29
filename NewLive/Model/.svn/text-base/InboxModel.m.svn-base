@@ -1,0 +1,25 @@
+//
+//  InboxModel.m
+//  GuoGuoLiveDev
+//
+//  Created by sy on 16/5/19.
+//  Copyright © 2016年 统领得一网络科技（上海）有限公司. All rights reserved.
+//
+
+#import "InboxModel.h"
+
+@implementation InboxModel
+
+- (id)initWithDictionary:(NSDictionary *)dict
+{
+    if (self = [super initWithDictionary:dict]) {
+        self.MessageTitle = dict[@"MessageTitle"];
+        self.MessageContent = dict[@"MessageContent"];
+        self.MessageId = [dict[@"MessageId"] intValue];
+        self.SendDate = dict[@"SendDate"];
+        self.SendUser = dict[@"SendUser"];
+    }
+    return self;
+}
+
+@end
